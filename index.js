@@ -12,9 +12,10 @@ function findMatching(collection, name){
   return newCollection;
 }
 
-function fuzzyMatch(collection, name, callback) {
+function fuzzyMatch(collection, name) {
   newCollection = [];
-  for (callback(collection, name) ) {
+  for (const driver of collection) {
+    if (name.toLowerCase().slice(0,2) === driver.toLowerCase().slice(0,2) ) {
       console.log(`${driver} was added to collection.`);
       newCollection.push(driver);
     }
